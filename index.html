@@ -2,7 +2,39 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Когда будет сделано?</title>
+  <title>FAQ Для Менеджеров</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    var frazes = ["Почему еще не сделано?", 
+    "А точнее?", 
+    "Кто это должен делать?", 
+    "Возьми кого-то в помощь!", 
+    "Скажи ему, пусть сделает!", 
+    "А что это?", 
+    "Как у вас дела?", 
+    "Как успехи?",
+    "Как продвигается?",
+    "Есть что показать?",
+    "Есть что посмотреть?",
+    "Когда думаешь заняться?",
+    "А если привязаться к календарю?",
+    "Есть новости по прогрессу?"];
+    
+    var lastRand = null;
+    
+    $(document).ready(function(){
+      $(".button").click(function(e){
+        e.preventDefault();
+        var randVar = Math.floor(Math.random() * frazes.length);
+        while (lastRand != null && lastRand == randVar){
+          randVar = Math.floor(Math.random() * frazes.length)
+        }
+        $(this).text(frazes[randVar]);
+        lastRand = randVar;
+      });
+    });
+    
+  </script>
   <style type="text/css">
 
     .container {
@@ -13,10 +45,11 @@
       border: 1px solid #bbb;
       padding: 10px 40px;
       font-size: 40px;
-      width: 410px;
+      width: 634px;
       display: block;
       margin: 0px auto;
       cursor: pointer;
+      text-align: center;
       -webkit-border-radius: 10px;
       -moz-border-radius: 10px;
       border-radius: 10px;
@@ -50,7 +83,7 @@
 </head>
 <body>
   <div class="container">
-    <a href="#" class="button">Когда будет сделано?</a>
+    <a href="#" class="button">А если привязаться к календарю?</a>
   </div>
 </body>
 </html>
